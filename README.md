@@ -127,5 +127,172 @@ Evaluation
       ▼
 Prediction
 ```
+# Dataset
+
+The dataset used in this project has been organized into three folders following the standard deep learning workflow.
+
+```text
+dataset/
+│
+├── train/
+├── valid/
+└── test/
+```
+
+The images were resized, cleaned, and arranged into class-wise folders for efficient training and evaluation.
+
+---
+
+# Dataset Availability
+
+The processed dataset used for this project is publicly available on Kaggle.
+
+**Kaggle Dataset**
+
+> https://www.kaggle.com/datasets/kishoornm/dermexavision-skin-condition-image-dataset
+
+---
+
+# Original Dataset Credits
+
+This project is built using images collected from the following public Kaggle datasets.
+
+### Skin Diseases
+
+https://www.kaggle.com/datasets/ascanipek/skin-diseases
+
+### Human Skin Diseases (Image)
+
+https://www.kaggle.com/datasets/youssefmohmmed/human-skin-diseases-image
+
+The datasets were combined, cleaned, reorganized, and split into training, validation, and testing sets for educational and research purposes.
+
+All image copyrights belong to the original dataset authors.
+
+---
+
+# Installation
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/kishoor-nm/DermexaVision.git
+
+cd DermexaVision
+```
+
+---
+
+## 2. Create Virtual Environment
+
+Windows
+
+```bash
+python -m venv venv
+
+venv\Scripts\activate
+```
+
+Linux / macOS
+
+```bash
+python3 -m venv venv
+
+source venv/bin/activate
+```
+
+---
+
+## 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Project Requirements
+
+- Python 3.10+
+- TensorFlow
+- Keras
+- NumPy
+- Matplotlib
+- Pillow
+- Scikit-learn
+- OpenCV
+
+---
+
+# Training the Model
+
+Run
+
+```bash
+python src/train.py
+```
+
+During training the project automatically
+
+- Loads the dataset
+- Applies preprocessing
+- Performs data augmentation
+- Trains the CNN
+- Validates the model
+- Saves the best model using ModelCheckpoint
+
+The trained model is saved as
+
+```text
+models/best_model.keras
+```
+
+---
+
+# Model Evaluation
+
+To evaluate the trained model
+
+```bash
+python src/evaluate.py
+```
+
+Evaluation includes
+
+- Test Accuracy
+- Test Loss
+- Classification Report
+- Confusion Matrix
+
+---
+
+# Prediction
+
+To classify a new skin image
+
+```bash
+python src/predict.py
+```
+
+The script loads the saved model and predicts the corresponding skin disease class.
+
+---
+
+# Downloading the Trained Model
+
+The trained model is **not included in the repository** because GitHub repositories have a maximum file size limit of **100 MB**.
+
+You can download the trained model from the **GitHub Releases** section.
+
+After downloading, place it inside:
+
+```text
+models/
+└── best_model.keras
+```
+
+Then run the prediction script normally.
+
+---
 
 ---
