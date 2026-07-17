@@ -129,51 +129,48 @@ Prediction
 ```
 # Dataset
 
-The dataset used in this project has been organized into three folders following the standard deep learning workflow.
+DermexaVision uses a curated skin disease image dataset organized according to the standard deep learning directory structure.
 
 ```text
 dataset/
-│
 ├── train/
 ├── valid/
 └── test/
 ```
 
-The images were resized, cleaned, and arranged into class-wise folders for efficient training and evaluation.
+The dataset contains images from seven skin condition classes and is split into training, validation, and testing subsets for model development and evaluation.
 
 ---
 
 # Dataset Availability
 
-The processed dataset used for this project is publicly available on Kaggle.
+The processed dataset is available on Kaggle:
 
-**Kaggle Dataset**
+**DermexaVision Skin Condition Image Dataset**
 
-> https://www.kaggle.com/datasets/kishoornm/dermexavision-skin-condition-image-dataset
+https://www.kaggle.com/datasets/kishoornm/dermexavision-skin-condition-image-dataset
 
 ---
 
-# Original Dataset Credits
+# Original Dataset Attribution
 
-This project is built using images collected from the following public Kaggle datasets.
+This dataset was created by combining and reorganizing images from the following publicly available Kaggle datasets:
 
-### Skin Diseases
+- Skin Diseases  
+  https://www.kaggle.com/datasets/ascanipek/skin-diseases
 
-https://www.kaggle.com/datasets/ascanipek/skin-diseases
+- Human Skin Diseases (Image)  
+  https://www.kaggle.com/datasets/youssefmohmmed/human-skin-diseases-image
 
-### Human Skin Diseases (Image)
+The images were cleaned, reorganized, and split into training, validation, and testing sets for educational and research purposes.
 
-https://www.kaggle.com/datasets/youssefmohmmed/human-skin-diseases-image
-
-The datasets were combined, cleaned, reorganized, and split into training, validation, and testing sets for educational and research purposes.
-
-All image copyrights belong to the original dataset authors.
+**Image copyrights remain with the original dataset authors.**
 
 ---
 
 # Installation
 
-## 1. Clone the Repository
+## Clone the Repository
 
 ```bash
 git clone https://github.com/kishoor-nm/DermexaVision.git
@@ -183,9 +180,9 @@ cd DermexaVision
 
 ---
 
-## 2. Create Virtual Environment
+## Create a Virtual Environment
 
-Windows
+### Windows
 
 ```bash
 python -m venv venv
@@ -193,7 +190,7 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-Linux / macOS
+### Linux / macOS
 
 ```bash
 python3 -m venv venv
@@ -203,7 +200,7 @@ source venv/bin/activate
 
 ---
 
-## 3. Install Dependencies
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -211,7 +208,7 @@ pip install -r requirements.txt
 
 ---
 
-# Project Requirements
+# Requirements
 
 - Python 3.10+
 - TensorFlow
@@ -219,45 +216,47 @@ pip install -r requirements.txt
 - NumPy
 - Matplotlib
 - Pillow
-- Scikit-learn
 - OpenCV
+- Scikit-learn
 
 ---
 
-# Training the Model
+# Training
 
-Run
+Start training by running:
 
 ```bash
 python src/train.py
 ```
 
-During training the project automatically
+The training pipeline automatically:
 
-- Loads the dataset
-- Applies preprocessing
+- Loads the training and validation datasets
+- Applies preprocessing and normalization
 - Performs data augmentation
-- Trains the CNN
-- Validates the model
-- Saves the best model using ModelCheckpoint
+- Builds the custom CNN architecture
+- Trains the model
+- Validates the model after every epoch
+- Saves the best-performing model using the built-in `ModelCheckpoint` callback
 
-The trained model is saved as
+The trained model is saved as:
 
 ```text
-models/best_model.keras
+models/
+└── best_model.keras
 ```
 
 ---
 
 # Model Evaluation
 
-To evaluate the trained model
+Evaluate the trained model using:
 
 ```bash
 python src/evaluate.py
 ```
 
-Evaluation includes
+The evaluation script reports:
 
 - Test Accuracy
 - Test Loss
@@ -268,30 +267,30 @@ Evaluation includes
 
 # Prediction
 
-To classify a new skin image
+Predict the skin condition for a new image using:
 
 ```bash
 python src/predict.py
 ```
 
-The script loads the saved model and predicts the corresponding skin disease class.
+The script loads the trained model (`best_model.keras`) and returns the predicted skin disease class.
 
 ---
 
-# Downloading the Trained Model
+# Trained Model
 
-The trained model is **not included in the repository** because GitHub repositories have a maximum file size limit of **100 MB**.
+The trained model is **not stored directly in the repository** because it exceeds GitHub's 100 MB file size limit.
 
-You can download the trained model from the **GitHub Releases** section.
+You can download the latest trained model from the repository's **Releases** page.
 
-After downloading, place it inside:
+After downloading, place the model in:
 
 ```text
 models/
 └── best_model.keras
 ```
 
-Then run the prediction script normally.
+The prediction and evaluation scripts will automatically load the model from this location.
 
 ---
 
