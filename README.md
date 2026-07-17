@@ -2,7 +2,7 @@
 
 <p align="center">
 
-![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-FF6F00?logo=tensorflow)
 ![Keras](https://img.shields.io/badge/Keras-Deep%20Learning-D00000?logo=keras)
 ![License](https://img.shields.io/badge/License-MIT-green)
@@ -13,57 +13,57 @@
 
 ---
 
-## AI-Powered Skin Disease Classification using Custom CNN
+# AI-Powered Skin Condition Classification using a Custom CNN
 
-DermexaVision is a deep learning project developed to classify skin diseases from dermatoscopic images using a **Custom Convolutional Neural Network (CNN)** built completely from scratch with **TensorFlow** and **Keras**.
+DermexaVision is a deep learning project that classifies skin condition images using a **Custom Convolutional Neural Network (CNN)** built entirely from scratch with **TensorFlow** and **Keras**.
 
-Unlike many image classification projects that rely on transfer learning models such as MobileNet, ResNet, or EfficientNet, DermexaVision demonstrates how a CNN can be designed, trained, and evaluated from the ground up.
+Instead of using transfer learning models such as MobileNet, ResNet, or EfficientNet, this project demonstrates the complete process of designing, training, evaluating, and testing a CNN architecture from the ground up.
 
 The project covers the complete deep learning workflow, including:
 
-- Image preprocessing
 - Dataset preparation
-- CNN architecture design
+- Image preprocessing
+- Custom CNN architecture
 - Model training
-- Validation
+- Model validation
 - Performance evaluation
-- Disease prediction
+- Skin condition prediction
 
-This repository is intended for educational purposes, research, and learning deep learning fundamentals through medical image classification.
+This project was developed for educational purposes to understand the fundamentals of deep learning and medical image classification.
 
 ---
 
 # Features
 
-- Custom CNN built from scratch
+- Custom CNN developed from scratch
 - TensorFlow & Keras implementation
-- Image preprocessing pipeline
-- Dataset normalization
-- Data augmentation
+- Image preprocessing and normalization
+- Organized dataset structure
 - ModelCheckpoint for saving the best model
-- Performance evaluation
-- Classification Report
-- Confusion Matrix
-- Prediction on unseen images
-- Organized project structure
-- Kaggle dataset support
-- GitHub Release with trained model
+- Model evaluation on an independent test dataset
+- Classification Report generation
+- Confusion Matrix visualization
+- Skin condition prediction
+- Kaggle dataset integration
+- Trained model available through GitHub Releases
 
 ---
 
-# Supported Skin Conditions
+# Supported Skin Condition Categories
 
-The model classifies the following seven skin conditions:
+The model classifies skin images into the following seven categories:
 
-| Class | Disease |
-|--------|----------|
-| 0 | Acne |
-| 1 | Chickenpox |
-| 2 | Eczema |
-| 3 | Healthy Skin |
-| 4 | Monkeypox |
-| 5 | Psoriasis |
-| 6 | Vitiligo |
+| Original Dataset Label | English Description |
+|-------------------------|---------------------|
+| Enfeksiyonel | Infectious Skin Conditions |
+| Ekzema | Eczema |
+| Akne | Acne |
+| Pigment | Pigmented Skin Conditions |
+| Benign | Benign Skin Lesions |
+| Malign | Malignant Skin Lesions |
+| Normal | Healthy Skin |
+
+> **Note:** The original dataset uses Turkish class names. The English descriptions above are provided for better readability while preserving the original dataset labels.
 
 ---
 
@@ -84,10 +84,10 @@ DermexaVision/
 │
 ├── src/
 │   ├── model.py
+│   ├── preprocess.py
 │   ├── train.py
 │   ├── evaluate.py
-│   ├── predict.py
-│   └── preprocess.py
+│   └── predict.py
 │
 ├── requirements.txt
 ├── README.md
@@ -98,7 +98,7 @@ DermexaVision/
 
 ---
 
-# CNN Workflow
+# Project Workflow
 
 ```text
 Skin Image
@@ -107,13 +107,10 @@ Skin Image
 Image Preprocessing
       │
       ▼
-Data Augmentation
-      │
-      ▼
 Custom CNN
       │
       ▼
-Training
+Model Training
       │
       ▼
 Validation
@@ -122,11 +119,13 @@ Validation
 Best Model Saved
       │
       ▼
-Evaluation
+Model Evaluation
       │
       ▼
-Prediction
+Skin Condition Prediction
 ```
+
+---
 # Dataset
 
 DermexaVision uses a skin disease image dataset organized using the standard deep learning directory structure.
