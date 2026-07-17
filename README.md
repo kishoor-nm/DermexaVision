@@ -129,7 +129,7 @@ Prediction
 ```
 # Dataset
 
-DermexaVision uses a curated skin disease image dataset organized according to the standard deep learning directory structure.
+DermexaVision uses a skin disease image dataset organized using the standard deep learning directory structure.
 
 ```text
 dataset/
@@ -138,23 +138,23 @@ dataset/
 └── test/
 ```
 
-The dataset contains images from seven skin condition classes and is split into training, validation, and testing subsets for model development and evaluation.
+The dataset contains seven skin condition classes and is divided into training, validation, and testing sets to ensure proper model development and evaluation.
 
 ---
 
 # Dataset Availability
 
-The processed dataset is available on Kaggle:
+The processed dataset used in this project is publicly available on Kaggle.
 
-**DermexaVision Skin Condition Image Dataset**
+**Dataset Link**
 
 https://www.kaggle.com/datasets/kishoornm/dermexavision-skin-condition-image-dataset
 
 ---
 
-# Original Dataset Attribution
+# Original Dataset Credits
 
-This dataset was created by combining and reorganizing images from the following publicly available Kaggle datasets:
+The processed dataset was created by combining and reorganizing images from the following public Kaggle datasets:
 
 - Skin Diseases  
   https://www.kaggle.com/datasets/ascanipek/skin-diseases
@@ -162,9 +162,9 @@ This dataset was created by combining and reorganizing images from the following
 - Human Skin Diseases (Image)  
   https://www.kaggle.com/datasets/youssefmohmmed/human-skin-diseases-image
 
-The images were cleaned, reorganized, and split into training, validation, and testing sets for educational and research purposes.
+The images were cleaned, reorganized, and divided into training, validation, and testing folders for educational and research purposes.
 
-**Image copyrights remain with the original dataset authors.**
+**Image copyrights belong to the original dataset creators.**
 
 ---
 
@@ -216,35 +216,35 @@ pip install -r requirements.txt
 - NumPy
 - Matplotlib
 - Pillow
-- OpenCV
 - Scikit-learn
 
 ---
 
-# Training
+# Training the Model
 
-Start training by running:
+Run the following command to train the model:
 
 ```bash
 python src/train.py
 ```
 
-The training pipeline automatically:
+During training, the project automatically:
 
 - Loads the training and validation datasets
-- Applies preprocessing and normalization
-- Performs data augmentation
+- Applies image preprocessing and normalization
 - Builds the custom CNN architecture
 - Trains the model
-- Validates the model after every epoch
-- Saves the best-performing model using the built-in `ModelCheckpoint` callback
+- Evaluates validation performance after every epoch
+- Saves the best-performing model (`best_model.keras`) using the built-in `ModelCheckpoint` callback
 
-The trained model is saved as:
+The trained model is saved in:
 
 ```text
 models/
 └── best_model.keras
 ```
+
+> **Note:** The `ModelCheckpoint` callback is already implemented in the training script. No additional configuration is required.
 
 ---
 
@@ -256,7 +256,7 @@ Evaluate the trained model using:
 python src/evaluate.py
 ```
 
-The evaluation script reports:
+The evaluation script generates:
 
 - Test Accuracy
 - Test Loss
@@ -267,21 +267,21 @@ The evaluation script reports:
 
 # Prediction
 
-Predict the skin condition for a new image using:
+Predict the skin condition of a new image using:
 
 ```bash
 python src/predict.py
 ```
 
-The script loads the trained model (`best_model.keras`) and returns the predicted skin disease class.
+The prediction script loads the trained model (`best_model.keras`) and predicts the corresponding skin condition.
 
 ---
 
 # Trained Model
 
-The trained model is **not stored directly in the repository** because it exceeds GitHub's 100 MB file size limit.
+The trained model is **not included in this repository** because it exceeds GitHub's 100 MB file size limit.
 
-You can download the latest trained model from the repository's **Releases** page.
+You can download the latest trained model from the **Releases** section of this repository.
 
 After downloading, place the model in:
 
@@ -290,7 +290,7 @@ models/
 └── best_model.keras
 ```
 
-The prediction and evaluation scripts will automatically load the model from this location.
+The evaluation and prediction scripts will automatically load the model from this location.
 
 ---
 
