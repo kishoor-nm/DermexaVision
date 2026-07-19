@@ -1,38 +1,47 @@
 from model import build_model
-from preprocess import train_dataset
-from preprocess import val_dataset
-from tensorflow.keras.callbacks import ModelCheckpoint
+from tensorflow.keras.optimizers import Adam
+from preprocess import train_dataset,val_dataset
 import matplotlib.pyplot as plt
-from tensorflow.keras.callbacks import EarlyStopping
+from callbacks import callbacks
+from config import EPOCHS, LEARNING_RATE
 
 model = build_model()
 
 model.compile(
-    optimizer='adam',
+    optimizer=Adam(learning_rate=LEARNING_RATE),
     loss='sparse_categorical_crossentropy',
     metrics=['accuracy']
 )
 
-checkpoint = ModelCheckpoint(
-    "../models/best_model.keras",
-    monitor='val_accuracy',
-    save_best_only=True,
-)
 
-early_stop = EarlyStopping(
-    monitor="val_loss",
-    patience=5,
-    restore_best_weights=True
-)
 
 history = model.fit(
     train_dataset,
     validation_data=val_dataset,
-    epochs=20,
-    callbacks=[checkpoint,early_stop]
+    epochs=EPOCHS,
+    callbacks=callbacks
 )
 
-plt.plot(history.history['accuracy'])
-plt.plot(history.history['val_accuracy'])
-plt.legend(['Training', 'Validation'])
+# Accuracy
+plt.figure(figsize=(8, 6))
+plt.plot(history.history["accuracy"], label="Training Accuracy")
+plt.plot(history.history["val_accuracy"], label="Validation Accuracy")
+plt.title("Accuracy")
+plt.xlabel("Epoch")
+plt.ylabel("Accuracy")
+plt.legend()
+plt.savefig("../outputs/graphs/accuracy.png",dpi=300)
 plt.show()
+plt.close()
+
+# Loss
+plt.figure(figsize=(8, 6))
+plt.plot(history.history["loss"], label="Training Loss")
+plt.plot(history.history["val_loss"], label="Validation Loss")
+plt.title("Loss")
+plt.xlabel("Epoch")
+plt.ylabel("Loss")
+plt.legend()
+plt.savefig("../outputs/graphs/loss.png",dpi=300)
+plt.show()
+plt.close()

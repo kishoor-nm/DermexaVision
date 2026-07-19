@@ -1,205 +1,185 @@
-# DermexaVision
+# 🩺 DermexaVision
 
-<p align="center">
+> **AI-Powered Skin Condition Classification using a Custom Convolutional Neural Network (CNN)**
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-FF6F00?logo=tensorflow)
-![Keras](https://img.shields.io/badge/Keras-Deep%20Learning-D00000?logo=keras)
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
+![Keras](https://img.shields.io/badge/Keras-Deep%20Learning-red)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Status](https://img.shields.io/badge/Status-Active-success)
-![Version](https://img.shields.io/badge/Version-v1.0.0-blue)
-
-</p>
+![Version](https://img.shields.io/badge/Version-v1.1.0-blueviolet)
 
 ---
 
-# AI-Powered Skin Condition Classification using a Custom CNN
+# 📖 Overview
 
-DermexaVision is a deep learning project that classifies skin condition images using a **Custom Convolutional Neural Network (CNN)** built entirely from scratch with **TensorFlow** and **Keras**.
+DermexaVision is a deep learning project that classifies human skin conditions from images using a **Custom Convolutional Neural Network (CNN)** built entirely from scratch with **TensorFlow** and **Keras**.
 
-Instead of using transfer learning models such as MobileNet, ResNet, or EfficientNet, this project demonstrates the complete process of designing, training, evaluating, and testing a CNN architecture from the ground up.
+The project demonstrates an end-to-end deep learning workflow, including image preprocessing, data augmentation, CNN model development, model training, evaluation, and prediction. It follows a modular project structure to improve readability, maintainability, and scalability.
 
-The project covers the complete deep learning workflow, including:
-
-- Dataset preparation
-- Image preprocessing
-- Custom CNN architecture
-- Model training
-- Model validation
-- Performance evaluation
-- Skin condition prediction
-
-This project was developed for educational purposes to understand the fundamentals of deep learning and medical image classification.
+This project was developed for educational, research, and portfolio purposes while following clean coding practices and semantic versioning.
 
 ---
 
-# Features
+# ✨ Features
 
-- Custom CNN developed from scratch
-- TensorFlow & Keras implementation
-- Image preprocessing and normalization
-- Organized dataset structure
-- ModelCheckpoint for saving the best model
-- Model evaluation on an independent test dataset
-- Classification Report generation
-- Confusion Matrix visualization
-- Skin condition prediction
-- Kaggle dataset integration
-- Trained model available through GitHub Releases
-
----
-
-# Supported Skin Condition Categories
-
-The model classifies skin images into the following seven categories:
-
-| Original Dataset Label | English Description |
-|-------------------------|---------------------|
-| Enfeksiyonel | Infectious Skin Conditions |
-| Ekzema | Eczema |
-| Akne | Acne |
-| Pigment | Pigmented Skin Conditions |
-| Benign | Benign Skin Lesions |
-| Malign | Malignant Skin Lesions |
-| Normal | Healthy Skin |
-
-> **Note:** The original dataset uses Turkish class names. The English descriptions above are provided for better readability while preserving the original dataset labels.
+- Custom CNN built from scratch
+- Image preprocessing pipeline
+- Data augmentation
+- Modular project architecture
+- Configuration management (`config.py`)
+- EarlyStopping callback
+- ModelCheckpoint callback
+- ReduceLROnPlateau callback
+- Model evaluation pipeline
+- Classification report generation
+- Confusion matrix generation
+- Image prediction with confidence score
+- Professional project structure
 
 ---
 
-# Project Structure
+# 📂 Project Structure
 
 ```text
 DermexaVision/
 │
 ├── dataset/
-│   ├── train/
-│   ├── valid/
-│   └── test/
+│   └── test/                 # Sample dataset (5 images × 7 classes)
 │
-├── models/
-│   └── README.md
+├── models/                   # Generated after training
 │
-├── outputs/
+├── outputs/                  # Generated after evaluation
 │
 ├── src/
+│   ├── callbacks.py
+│   ├── config.py
+│   ├── evaluate.py
+│   ├── metrics.py
 │   ├── model.py
+│   ├── predict.py
 │   ├── preprocess.py
 │   ├── train.py
-│   ├── evaluate.py
-│   └── predict.py
+│   └── visualization.py
 │
-├── requirements.txt
-├── README.md
 ├── CHANGELOG.md
 ├── LICENSE
+├── README.md
+├── VERSION
+├── requirements.txt
 └── .gitignore
 ```
 
 ---
 
-# Project Workflow
+# 📊 Dataset
 
-```text
-Skin Image
-      │
-      ▼
-Image Preprocessing
-      │
-      ▼
-Custom CNN
-      │
-      ▼
-Model Training
-      │
-      ▼
-Validation
-      │
-      ▼
-Best Model Saved
-      │
-      ▼
-Model Evaluation
-      │
-      ▼
-Skin Condition Prediction
-```
+The complete processed dataset used in this project is publicly available on Kaggle.
 
----
-# Dataset
-
-DermexaVision uses a skin disease image dataset organized using the standard deep learning directory structure.
-
-```text
-dataset/
-├── train/
-├── valid/
-└── test/
-```
-
-The dataset contains seven skin condition classes and is divided into training, validation, and testing sets to ensure proper model development and evaluation.
-
----
-
-# Dataset Availability
-
-The processed dataset used in this project is publicly available on Kaggle.
-
-**Dataset Link**
+## Processed Dataset
 
 https://www.kaggle.com/datasets/kishoornm/dermexavision-skin-condition-image-dataset
 
+The dataset has been:
+
+- Cleaned
+- Reorganized
+- Split into Training, Validation, and Testing sets
+
+To keep this repository lightweight, only a **sample testing dataset** is included.
+
+The repository contains:
+
+- **7 Skin Condition Classes**
+- **5 Sample Test Images for Each Class**
+
+The complete dataset can be downloaded from the Kaggle link above.
+
 ---
 
-# Original Dataset Credits
+# 📚 Original Dataset Credits
 
-The processed dataset was created by combining and reorganizing images from the following public Kaggle datasets:
+The processed dataset was created by combining and reorganizing images from the following publicly available Kaggle datasets.
 
-- Skin Diseases  
-  https://www.kaggle.com/datasets/ascanipek/skin-diseases
+### Skin Diseases
 
-- Human Skin Diseases (Image)  
-  https://www.kaggle.com/datasets/youssefmohmmed/human-skin-diseases-image
+https://www.kaggle.com/datasets/ascanipek/skin-diseases
+
+### Human Skin Diseases (Image)
+
+https://www.kaggle.com/datasets/youssefmohmmed/human-skin-diseases-image
 
 The images were cleaned, reorganized, and divided into training, validation, and testing folders for educational and research purposes.
 
-**Image copyrights belong to the original dataset creators.**
+**Image copyrights remain with the original dataset creators.**
 
 ---
 
-# Installation
+# 🧠 CNN Architecture
 
-## Clone the Repository
+```text
+Input Image
+      │
+      ▼
+Rescaling
+      │
+      ▼
+Conv2D (32)
+      │
+      ▼
+MaxPooling2D
+      │
+      ▼
+Conv2D (64)
+      │
+      ▼
+MaxPooling2D
+      │
+      ▼
+Conv2D (128)
+      │
+      ▼
+Flatten
+      │
+      ▼
+Dense (128)
+      │
+      ▼
+Dropout
+      │
+      ▼
+Output Layer (Softmax)
+```
+
+---
+
+# ⚙️ Training Configuration
+
+| Parameter | Value |
+|-----------|-------|
+| Image Size | 128 × 128 |
+| Batch Size | 32 |
+| Optimizer | Adam |
+| Learning Rate | 0.001 |
+| Epochs | 20 |
+| Loss Function | Sparse Categorical Crossentropy |
+
+---
+
+# 🚀 Installation
+
+Clone the repository
 
 ```bash
 git clone https://github.com/kishoor-nm/DermexaVision.git
+```
 
+Navigate to the project
+
+```bash
 cd DermexaVision
 ```
 
----
-
-## Create a Virtual Environment
-
-### Windows
-
-```bash
-python -m venv venv
-
-venv\Scripts\activate
-```
-
-### Linux / macOS
-
-```bash
-python3 -m venv venv
-
-source venv/bin/activate
-```
-
----
-
-## Install Dependencies
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -207,90 +187,119 @@ pip install -r requirements.txt
 
 ---
 
-# Requirements
-
-- Python 3.10+
-- TensorFlow
-- Keras
-- NumPy
-- Matplotlib
-- Pillow
-- Scikit-learn
-
----
-
-# Training the Model
-
-Run the following command to train the model:
+# 🏋️ Train the Model
 
 ```bash
 python src/train.py
 ```
 
-During training, the project automatically:
+The trained model will automatically be saved inside the `models/` directory.
 
-- Loads the training and validation datasets
-- Applies image preprocessing and normalization
-- Builds the custom CNN architecture
-- Trains the model
-- Evaluates validation performance after every epoch
-- Saves the best-performing model (`best_model.keras`) using the built-in `ModelCheckpoint` callback
-
-The trained model is saved in:
-
-```text
-models/
-└── best_model.keras
-```
-
-> **Note:** The `ModelCheckpoint` callback is already implemented in the training script. No additional configuration is required.
+> **Note:** Trained model files are not included in this repository because they are generated after training.
 
 ---
 
-# Model Evaluation
-
-Evaluate the trained model using:
+# 📈 Evaluate the Model
 
 ```bash
 python src/evaluate.py
 ```
 
-The evaluation script generates:
+The evaluation pipeline generates:
 
 - Test Accuracy
-- Test Loss
 - Classification Report
 - Confusion Matrix
+- Prediction Visualizations
 
 ---
 
-# Prediction
-
-Predict the skin condition of a new image using:
+# 🔍 Predict an Image
 
 ```bash
 python src/predict.py
 ```
 
-The prediction script loads the trained model (`best_model.keras`) and predicts the corresponding skin condition.
+The prediction script outputs:
+
+- Predicted Skin Condition
+- Confidence Score
 
 ---
 
-# Trained Model
+# 🛠 Technologies Used
 
-The trained model is **not included in this repository** because it exceeds GitHub's 100 MB file size limit.
-
-You can download the latest trained model from the **Releases** section of this repository.
-
-After downloading, place the model in:
-
-```text
-models/
-└── best_model.keras
-```
-
-The evaluation and prediction scripts will automatically load the model from this location.
+- Python
+- TensorFlow
+- Keras
+- NumPy
+- Matplotlib
+- Scikit-learn
+- Pillow
 
 ---
 
+# 🗺 Roadmap
+
+## ✅ Version 1.0.0
+
+- Dataset Preparation
+- Custom CNN Development
+- Model Training
+- Model Evaluation
+
 ---
+
+## ✅ Version 1.1.0
+
+- Modular Project Structure
+- Configuration Management
+- Callback Integration
+- Improved Evaluation Pipeline
+- Improved Prediction Pipeline
+- Code Refactoring
+
+---
+
+## 🚧 Version 1.2.0 (Planned)
+
+- Explainable AI (Grad-CAM)
+- CNN Architecture Improvements
+- Enhanced Performance
+- Better Visualization
+
+---
+
+## 🚀 Version 2.0.0 (Future)
+
+- Web Application
+- REST API
+- Real-Time Prediction
+- Cloud Deployment
+- User Authentication
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+See the `LICENSE` file for more information.
+
+---
+
+# 👨‍💻 Author
+
+**Kishoor NM**
+
+Artificial Intelligence & Machine Learning Student
+
+GitHub: https://github.com/kishoor-nm
+
+---
+
+# ⭐ Support
+
+If you found this project helpful, consider giving it a ⭐ on GitHub.
+
+Your support motivates future development and helps improve the project.
